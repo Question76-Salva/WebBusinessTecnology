@@ -1,0 +1,857 @@
+/** ======================================================= */
+/** === custom properties | usar en todos los proyectos === */
+/** ======================================================= */
+:root {
+    /* === variables | paleta de colores === */
+    --oscuro: #07070A;
+    --azulOscuro: #0A1128;
+    --azulClaro: #006FE6;
+    --blanco: #FEFCFB;
+
+    /* === variables | tipografía === */
+    --titulos: 'Baloo 2', cursive;
+    --parrafos: 'Montserrat', sans;
+}
+
+html {    
+    box-sizing: border-box;
+    /* === unidades de medida === */
+    /* usar rem | no importa que pantalla uses, se verá de forma correcta | x defecto los párrafos miden 16px */
+    /* === saca el 62.5% al tamaño de la letra por defecto, 16px | lo combierte a 10px (1rem) === */
+    font-size: 62.5%;
+    /* === al ir a cada sección por los botones de la barra de navegación sea más suave el efecto === */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* === 16px de base | partiendo de 10px -> 1rem | 1.6rem -> 16px === */
+    font-size: 1.6rem;       
+}
+
+*,*::before, *::after {    
+    /* toma el valor calculado de su contenedor padre | lo que definimos de ancho y alto (no suma el padding) 
+    agrega el padding sin incrementar el tamaño de la caja */
+    box-sizing: inherit;
+}
+
+/** ======================================================================== */
+/** === estilos globales | todo elemento que seleccionemos va a contener === */
+/** ======================================================================== */
+
+/* === headings | tipos de encabezados === */
+h1, h2, h3 {
+    font-family: var(--titulos);
+}
+
+/* === parrafos y enlaces === */
+p, a {
+    font-family: var(--parrafos);
+}
+
+/* === ocultar elementos | para el responsive === */
+.ocultar {
+    display: none;
+}
+
+/* === centrar contenido === */
+.contenedor {
+    /* === el 0 (arriba y abajo) y el auto (izquierda y derecha espacio que esté disponible) === */
+    margin: 0 auto;
+    /* === definir una base de máximo (un ancho de máximo hasta 120rem) | 1200px === */
+    max-width: 120rem;
+    /* === dejar un espacio a los costados | que no ocupe todo el ancho de 120rem | máximo un 90% === */
+    width: 95%;
+}
+
+/* === botones === */
+.btn {
+    /* === espacio interior | 1rem arriba y abajo | 4rem izquierda y derecha === */
+    padding: 1rem 4rem;
+    /* === letra en negrita === */
+    font-weight: bold;
+    /* === cambiar tipo de letra === */
+    font-family: var(--parrafos);
+    /* === tamaño fuente | 20px === */
+    font-size: 2rem;
+    /* === botón sin borde === */
+    border: none;
+    /* === color de la letra === */
+    color: var(--blanco);
+}
+
+.bordes {
+    /* === borde azul para botón con fondo blanco | sección saber más === */
+    border: 2px solid var(--azulClaro);
+    /* === color fuente === */
+    color: var(--azulClaro);
+    /* === quitar línea de decoración/subrayado en texto del botón === */
+    text-decoration: none;
+    /* === el botón ocupa el espacio disponible === */
+    display: block;
+    /* === centrar el texto del botón === */
+    text-align: center;
+    /* === efecto suavizar cambio hover === */
+    transition: background-color .3s ease-in-out;    
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .bordes {
+        /* === ocupa sólo su espacio disponible === */
+        display: inline-block;
+        /* === espacio de separaración desde arriba | distanciar botón del texto === */
+        margin-top: 2rem;
+    }
+}
+
+.bordes:hover {
+    /* === al pasar el ratón por encima cambia de color de fondo el botón === */
+    background-color: var(--azulClaro);
+    /* === y cambia el color de la fuente === */
+    color: var(--blanco);
+}
+
+.btn:hover {
+    /* === cambia puntero ratón (a mano) al pasar por encima del botón === s*/
+    cursor: pointer;
+}
+
+.azul {
+    /* === color para botón === */
+    background-color: var(--azulClaro);
+}
+
+/* === crear animación para mostrar menú hamburguesa === */
+@keyframes desplazamiento {
+    /* === desplazamiento inicial === */
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ============================================================================================= */
+/* === a partir de aquí se usa movile first | las media querys son para dispositivos mayores === */
+/* === primero se diseña para móviles y después para el resto de dispostivos                 === */
+/* ============================================================================================= */
+
+
+/** ============================ */
+/** === sección | encabezado === */
+/** ============================ */
+.encabezado {
+    /* === carga la imagen de fondo === */
+    background-image: url(../img/fondo.jpg);
+    /* === la imagen no se repite, solo se mostrará una vez === */
+    background-repeat: no-repeat;
+    /* === ocupa el 100% de la pantalla del navegador sin importar el disponsitivo | viewport === */
+    height: 100vh;
+    /* === que no se corte la imagen al redimensionar a más pequeña | responsive === */
+    min-height: 70rem;
+    /* === adapta la imagen a su contenedor padre | la adapta a la pantalla === */
+    background-size: cover;
+    /* === centrar la imagen | y evitar scroll === */
+    background-position: center center;    
+    /* === para el pseudoelemento | al ser el hijo absolute | el padre debe ser relative === */
+    position: relative;
+    /* === sobreponerse/por encima al pseudoelemento === */
+    z-index: 1;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    /* === efecto parallax === */
+    .encabezado {
+        /* === dejar fijo la imagen de fondo principal === */
+        background-attachment: fixed;
+    }
+}
+
+/* === filtro | pseudoelemento | degradado/oscurecer imagen fondo para realzar lo demás === */
+/* pseudoelemento -> no se puede seleccionar | está atrás/antes de los elementos principales */
+.encabezado::before {
+    content: '';
+    /* === el elemento padre debe ser relative === */
+    position: absolute;
+    /* === posición del pseudoelemento | degradado | oscurecer la imagen de fondo | ocupa todo === */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* === crear filtro === */
+    background-color: rgba(0,0,0,0.5);
+    /* === pseudoelemento por debajo del elemento padre | para que no se difumine todo === */
+    z-index: -1;
+}
+
+
+/* =========================== */
+/* === barra de navegación === */
+/* =========================== */
+.logo h2 {
+    /* === tamaño h2 30px === */
+    font-size: 3rem;
+}
+
+.logo h2 span {
+    color: var(--azulClaro);
+}
+
+.contenido-navegacion {
+    /* === activar flexbox === */
+    /* === alinea horizontalmente (de izquierda a derecha) a los elementos (contenedores) hijos === */
+    display: flex;
+    /* === alinear los elementos hijos de forma vertical | al mismo nivel de altura | simétricamente === */
+    align-items: center;
+    /* === alinear los elementos hijos de forma horizontal === */
+    /* === cada elemento a un extremo de la pantalla y con separación a los costados de los elementos === */
+    justify-content: space-around;
+    /* === poner color de fondo === */
+    background-color: var(--blanco);
+    /* === sombreado | x, y, blur, lo que se va a expandir el blur, color  === */
+    box-shadow: 10px 10px 16px rgba(0,0,0,0.45);
+    /* === poner fija la barra de navegación === */
+    position: fixed;    
+    /* === que se fije arriba a la izquierda === */
+    top: 0;
+    /* === que no salga cortada | y ocupe todo el ancho disponible === */
+    width: 100%;
+    /* === superponer por encima de todos los planos === */
+    z-index: 2;
+}
+
+.navegacion {
+    /* === tamaño movil | menú hamburguesa desplegable hacia abajo === */
+    background-color: var(--blanco);
+    position: absolute;
+    left: 0;
+    top: 70px;
+    /* === que ocupe todo el ancho disponible === */
+    width: 100%;   
+    /* === mostrar animación | menú hamburguesa | animación suavizada al inicio y final === */
+    animation: desplazamiento .5s ease-in-out; 
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .ocultar {
+        /* === mostrar enlaces | navegación === */
+        display: inline;
+    }
+}
+
+.navegacion a {
+    /* === tamaño movil | menú hamburguesa desplegable hacia abajo === */
+    display: block;
+    font-size: 2rem;
+    /* === separación entre ellos === */
+    padding: 1.1rem;
+    color: var(--oscuro);
+    /* === quitar linea subrayado al enlace === */
+    text-decoration: none; 
+    /* === centrar texto | de los enlaces del menú hamburguesa === */   
+    text-align: center;
+    /* === transición para el efecto hover | al contenedor padre === */
+    transition: all .3s ease-in-out;
+}
+
+.navegacion a:hover {
+    /* === al pasar el cursor por un enlace | cambia de color de fondo === */
+    background-color: var(--azulClaro);
+    /* === al pasar el cursor por un enlace | cambia de color de la fuente === */
+    color: var(--blanco);
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .navegacion a {
+        /* === mostrar enlaces | navegación | uno al lado del otro === */
+        display: inline;
+    }    
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        /* === que ocupe el espacio definido para el menú | resetear valores === */
+        position: relative;
+        top: unset;
+        width: auto;
+        /* === quitar color de fondo === */
+        background-color: unset;
+        /* === quitar animación === */
+        animation: unset;
+    }
+}
+
+/* ======================== */
+/* === menú hamburguesa === */
+/* ======================== */
+.hamburguesa span {
+    /* === ancho === */
+    width: 5rem;
+    /* === alto === */
+    height: 1rem;
+    /* === borde === */
+    border: 3px solid white;
+    /* === color de fondo === */
+    background-color: var(--oscuro);
+    /* === uno debajo del otro | para los span | las 3 barras (spans) del menu hamburguesa === */
+    display: block;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media(min-width: 768px) {
+    .hamburguesa {
+        /* === ocultar menú hamburguesa === */
+        display: none;
+    }
+}
+
+/* ================================ */
+/* === contenido del encabezado === */
+/* ================================ */
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .contenido-encabezado {
+        /* ==== alinear elementos | uno al lado del otro | título y formulario === */
+        display: flex;
+        /* === alinear verticalmente | centrado === */
+        align-items: center;
+        /* === separa los elementos | según espacio disponible === */
+        justify-content: space-between;
+        /* === que ocupe el 85% el espacio disponible === */
+        height: 85%;
+    }
+
+    .contenido-encabezado, .formulario-encabezado {
+        /* === calcular un espacio === */
+        /* que ambos contenedores ocupen el 50% de la pantalla pero con un espacio entre ambos */
+        /* flex: (factor crecimiento) (factor decrecimiento) (base) */
+        /* 0 -> que no crezca | 0 -> que no disminuya | calc(50% - 1rem) -> base 50% - 10px(separación) */
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+.texto-encabezado h1 {
+    /* === tamaño fuente | 30px === */
+    font-size: 3rem;
+    /* === centrado === */
+    text-align: center;
+    /* === color fuente === */
+    color: var(--blanco);
+    /* === margen interior | hacia arriba === */
+    padding-top: 8rem;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {    
+    .texto-encabezado h1 {
+        /* === cambiar tamaño del texto | para pantallas grandes | 70px === */
+        font-size: 7rem;
+        /* === alinear texto a la izquierda === */
+        text-align: left;
+        /* === quitar espaciado interior de arriba === */
+        padding-top: 0;
+    }
+}
+
+.formulario-encabezado {
+    /* === color fondo del formulario === */
+    background-color: var(--blanco);
+    /* === alineación === */
+    display: flex;
+    /* === cambiar eje | "Y" (aliena de arriba hacia abajo) | filas === */
+    flex-direction: column;    
+    /* === alinea de manera horizontal | al ser column se invierte la dirección === */
+    align-items: center;
+    /* === margen interior | 50px === */
+    padding: 5rem;
+    /* === redondear los bordes del formulario | de 5px === */
+    border-radius: .5rem;
+}
+
+.formulario-encabezado h2 {
+    /* === tamaño de la fuente | 30px === */
+    font-size: 3rem;
+    /* === centrar texto === */
+    text-align: center;
+    /* === quitar margen de arriba por defecto === */
+    margin-top: 0;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .formulario-encabezado h2 {
+        /* === tamaño de la fuente | 30px === */
+    font-size: 3rem;
+    }
+}
+
+.input-encabezado {
+    /* === separación entre los inputs del formulario === */
+    margin-bottom: 1rem;
+    /* === que ocupen el 100% del espacio disponible === */
+    width: 100%;
+}
+
+.input-encabezado input {
+    /* === que ocupen el 100% del espacio disponible del contenido padre === */
+    width: 100%;
+    /* === modificar el tamaño de los inputs === */
+    /* === espacio interior | izquierda y derecha === */
+    padding: 0 1.6rem;
+    /* === alto === */
+    height: 4.8rem;
+    /* === borde === */
+    border: 1px solid #f1f1f1;
+    /* === redondear bordes | 5px === */
+    border-radius: .5rem;
+    /* === tipo de letra de los inputs === */
+    font-family: var(--parrafos);
+    /* === quitar los bordes anaranjados de los inputs al hacer click en ellos === */
+    outline: none;
+}
+
+/** =================================== */
+/** === sección | ventajas (iconos) === */
+/** =================================== */
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .contenido-ventajas {
+        /* === alinear en columnas con grid === */
+        display: grid;
+        /* === definir cuantas columnas queremos | 3 columnas y que las 3 midan lo mismo === */
+        grid-template-columns: repeat(3, 1fr);
+        /* === separación entre columnas (en todos los lados) | 20px === */
+        gap: 2rem;
+    }
+}
+
+.ventajas {
+    /* === espacio/margen interior | en todos los lados === */
+    padding: 5rem;
+    /* === color de fondo del contenedor === */
+    background-color: var(--azulOscuro);
+}
+
+.ventaja {
+    /* === color del texto === */
+    color: var(--blanco);
+    /* === centrar texto === */
+    text-align: center;
+}
+
+.ventaja i {
+    /* === cambiar tamaño iconos | 40px === */
+    font-size: 4rem;
+}
+
+.ventaja h3 {
+    /* === tamaño fuente | 25px === */
+    font-size: 2.5rem;
+}
+
+.ventaja p {
+    /* === tamaño fuente | 20px === */
+    font-size: 2rem;
+}
+
+/** ================================ */
+/** === sección | sobre nosotros === */
+/** ================================ */
+.nosotros h2 {
+    /* === centrar texto === */
+    text-align: center;
+    /* === tamaño fuente | 40px === */
+    font-size: 4rem;
+    /* === color fuente === */
+    color: var(--azulClaro);
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .nosotros h2 {
+        /* === tamaño fuente | 50px === */
+        font-size: 5rem;
+    }
+}
+
+.contenido-nosotros {    
+    /* === imagen de fondo === */
+    background-image: url(../img/nosotros.jpg);
+    /* === grid === */
+    display: grid;
+    /* === definir las filas que tiene | 2 filas | la imagen y la clase "texto-nosotros" === */
+    grid-template-rows: repeat(2, 1fr); 
+    /* === adaptar la imagen de fondo al contenedor === */
+    background-size: cover;
+    /* === centrar la imagen al contenedor === */
+    background-position: center center;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .contenido-nosotros {
+        /* === cuando la pantalla sea más grande define 2 columnas === */
+        grid-template-columns: repeat(2, 1fr);
+        /* === efecto parallax | fijar imagen fondo === */
+        background-attachment: fixed;
+    }
+}
+
+.texto-nosotros {
+    /* === mover el texto de la fila 2 a la fila 3 === */
+    grid-row: 2/3;
+    /* === cambiar color de fondo === */
+    background-color: var(--blanco);
+    /* === espacio interior === */
+    padding: 2rem;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .texto-nosotros {
+        /* === espacio interior | 50px === */
+        padding: 5rem;
+    }
+}
+
+.texto-nosotros h3 {
+    /* === cambiar tamaño fuente | 40px === */
+    font-size: 4rem;
+    /* === color de la fuente === */
+    color: var(--azulClaro);
+    /* === centrar texto === */
+    text-align: center;
+}
+
+.texto-nosotros p {
+    /* === cambiar tamaño fuente | 22px === */
+    font-size: 2.2rem;
+    /* === centrar texto === */
+    text-align: center;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .texto-nosotros p {
+        /* ==== alinear párrafo a la izquierda === */
+        text-align: left;
+    }
+}
+
+/** =========================== */
+/** === sección | servicios === */
+/** =========================== */
+.servicios {
+    /* === espacio interior arriba | 50px === */
+    padding-top: 5rem;
+}
+
+.servicios h2 {
+    /* === cambiar tamaño de fuente | 50px === */
+    font-size: 5rem;
+    /* === centrar texto === */
+    text-align: center;
+    /* === color texto fuente === */
+    color: var(--azulClaro);
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .contenido-servicios {
+        /* === mostrar contenido en 3 columnas === */
+        display: grid;
+        /* === definir las 3 columnas === */
+        grid-template-columns: repeat(3, 1fr);
+        /* === separación en todos los lados | 40px === */
+        gap: 4rem;
+    }
+}
+
+.servicio {
+    /* === alinear de manera horizontal | movil === */
+    display: flex;
+    /* === alinear en columnas === */
+    flex-direction: column;
+    /* === centrar contenido === */
+    align-items: center;    
+}
+
+.servicio i {
+    /* === cambiar color de fondo de los iconos === */
+    background-color: var(--azulClaro);
+    /* === definir tamaño de los iconos | ancho (100px) y alto (100px) === */
+    width: 10rem;
+    height: 10rem;
+    /* === contorno en forma de círculo === */
+    border-radius: 50%;
+    /* === alinear iconos al centro del círculo | div/contenedor (.servicio) === */
+    display: flex;
+    /* === alinear de forma vertical === */
+    align-items: center;
+    /* === alinear de forma horizontal === */
+    justify-content: center;
+    /* === cambiar color del contenido del icono === */
+    color: var(--blanco);
+    /* === cambiar el tamaño del contenido del icono | 30px === */
+    font-size: 3rem;
+    /* === aplicar efecto sombra | x y blur esparcir-blur transparencia === */
+    box-shadow: 10px 10px 16px -6px rgba(0,0,0,0.45);
+    /* === efecto transición al hover | para que no sea brusco el cambio de colores === */
+    transition: all .3s ease-in-out;
+}
+
+.servicio h3 {
+    /* === cambiar tamaño fuente | 22px === */
+    font-size: 2.2rem;
+    /* === cambiar color fuente === */
+    color: var(--azulOscuro);
+}
+
+.servicio p {
+    /* === cambiar tamaño fuente | 18px === */
+    font-size: 1.8rem;
+    /* === centrar texto | en móvil === */
+    text-align: center;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .servicio p {
+        /* === alinear a la izquierda === */
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .servicio:hover {
+        /* === cambiar puntero ratón al pasar por encima de los iconos === */
+        cursor: pointer;
+    }
+
+    .servicio:hover .fas {
+        /* === cambiar color de fondo a blanco a los iconos (el fondo) === */
+        background-color: var(--blanco);
+        /* === cambiar color a azúl a los iconos === */
+        color: var(--azulClaro);
+    }
+}
+
+/** ========================== */
+/** === sección | contacto === */
+/** ========================== */
+.contacto {
+    /* === espacio interior hacia arriba | 50px === */
+    padding-top: 5rem;
+}
+
+.contacto h2 {
+    /* === centrar texto === */
+    text-align: center;
+    /* === color fuente === */
+    color: var(--azulClaro);
+    /* === tamaño fuente | 50px === */
+    font-size: 5rem;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .contenido-contacto {
+        /* === mostrar en columnas el contenido === */
+        display: grid;
+        /* === definir las columnas | 2 columnas === */
+        grid-template-columns: repeat(2, 1fr);
+    }    
+}
+
+.informacion-contacto {
+    /* === poner imagen de fondo === */
+    background-image: url(../img/contacto.jpg);
+    /* === adaptar la imagen de fondo al contenedor === */
+    background-size: cover;
+    /* === alto | por defecto === */
+    height: auto; 
+    /* === que la imagen no se repita === */
+    background-repeat: no-repeat;
+    /* === centrar la imagen al contenedor === */
+    background-position: center center;
+    /* === position relative | contenedor padre | el hijo lleva position absolute | para filtro === */
+    position: relative;
+    /* === superponer este plano | lo que va delante === */
+    z-index: -2;
+    /* === alinear contenido | centrar contenido === */
+    display: flex;
+    /* === visualizar en columnas | se invierten las instrucciones para eje "x" e "y" === */
+    flex-direction: column;
+    /* === centrar horizontalmente === */
+    align-items: center;
+    /* === centrar verticalmente === */
+    justify-content: center;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .informacion-contacto {
+        /* === alto | que ocupe el 100% de la pantalla del navegador === */
+        height: 100vh;    
+    }     
+}
+
+/* === filtro | pseudoelemento | degradado/oscurecer imagen fondo para realzar lo demás === */
+/* pseudoelemento -> no se puede seleccionar | está atrás/antes de los elementos principales */
+.informacion-contacto::before {
+    content: '';
+    /* === posición hijo respecto al padre === */
+    position: absolute;
+    /* === colocarlo en la pantalla === */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* === aplicar filtro === */
+    background-color: rgba(0,0,0,0.5);
+    /* === lo que va por detrás | plano trasero === */
+    z-index: -1;
+}
+
+.informacion-contacto h3 {
+    /* === tamaño de la fuente | 40px === */
+    font-size: 4rem;
+    /* === centrar texto === */
+    text-align: center;
+}
+
+.informacion-contacto p {
+    /* === tamaño de la fuente | 20px === */
+    font-size: 2rem;
+}
+
+.informacion-contacto h3, .informacion-contacto p {
+    /* === color de los textos | blanco === */
+    color: var(--blanco);
+}
+
+.formulario-contacto {
+    /* === espacio interior | 50px === */
+    padding: 5rem;
+    /* === alinear elementos === */
+    display: flex;
+    /* === cambiar dirección | columnas === */
+    flex-direction: column;
+    /* === centrar verticalmente === */
+    justify-content: center;
+    /* === cambiar color de fondo === */
+    background-color: var(--azulOscuro);
+}
+
+.input-contacto label {
+    /* === cambiar color fuente === */
+    color: var(--blanco);
+    /* === cambiar tipo de letra === */
+    font-family: var(--parrafos);
+    /* === para que se pongan una debajo del otro === */
+    display: block;
+    /* === separación exterior | 10px arriba y abajo | 0 izquierda y derecha | para separar === */
+    margin: 1rem 0;
+    /* === cambiar fuente a negrita === */
+    font-weight: bold;
+}
+
+.input-contacto input {
+    /* === espacio interior | 12px arriba y abajo | 10px izquierda y derecha === */
+    padding: 1.2rem 1rem;
+    /* === cambiar tipo de letra === */
+    font-family: var(--parrafos);    
+}
+
+.input-contacto input, .input-contacto textarea {
+    /* === que los campos (inputs y textarea) ocupen el 100% del ancho disponible === */
+    width: 100%;
+    /* === quitar los bordes al seleccionar los inputs === */
+    outline: none;
+}
+
+.input-contacto textarea {
+    /* === que el textarea no pueda ser redimensionado por el usuario === */
+    resize: none;
+    /* === cambiar tipo de letra === */
+    font-family: var(--parrafos); 
+}
+
+.input-contacto input[type="submit"] {
+    /* === que el botón no ocupe el 100% del ancho disponbible | lo que ocupa por defecto === */
+    width: auto;
+    /* === espacio interior | 10px arriba y abajo | 30px izquierda y derecha === */
+    padding: 1rem 3rem;
+    /* === efecto suavizado | botón === */
+    transition: background-color .3s ease-in-out;
+}
+
+.input-contacto input[type="submit"]:hover {
+    /* === al pasar ratón por encima cambia de color === */
+    background-color: var(--blanco);
+    color: var(--azulClaro);
+}
+
+/** ======================== */
+/** === sección | footer === */
+/** ======================== */
+.footer .logo h2, p {
+    /* === centrar textos del footer === */
+    text-align: center;
+}
+
+/** === media querys | para dispositivos más grandes | tablets, portátiles, pc´s === */
+/* dependiendo del tamaño que definamos el contenido va a mostrarse de una manera u otra */
+/* cuando tenga mínimo 768px hacia arriba */
+@media (min-width: 768px) {
+    .footer {
+        /* === alinear elementos === */
+        display: flex;
+        /* === centrar elementos verticalmente === */
+        align-items: center;
+        /* === centrar elementos horizontalmente === */
+        justify-content: space-around;
+    }    
+}
+

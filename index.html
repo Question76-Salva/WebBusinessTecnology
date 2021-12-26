@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- === compatible navegadores antiguos === -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- === da al navegador instrucciones sobre cómo controlar las dimensiones y la escala de la página === -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Tecnology</title>
+    <!-- === google fonts === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- === iconos | font awesome === -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <!-- === quita todos los estilos por defecto del navegador | usar siempre === -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ================== -->
+    <!-- === encabezado === -->
+    <!-- ================== -->
+    <header class="encabezado" id="inicio">
+        <!-- === barra de navegación === -->
+        <div class="contenido-navegacion">
+            <div class="logo">
+                <h2>Business <span>Tecnology</span></h2>
+            </div>
+            <nav class="navegacion ocultar">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <!-- === menú hamburguesa === -->
+            <div class="hamburguesa">
+                <span></span><span></span><span></span>
+            </div>
+        </div>      
+        
+        <!-- === contenido del encabezado === -->
+        <div class="contenido-encabezado contenedor">
+          <div class="texto-encabezado">
+            <h1>Estamos a la vanguardia de la tecnología</h1>
+          </div>
+
+          <form class="formulario-encabezado">
+            <h2>Reserva una cita con nosotros</h2>
+            <div class="input-encabezado">
+              <input type="text" placeholder="Nombre">
+            </div>
+            <div class="input-encabezado">
+              <input type="mail" placeholder="Correo">
+            </div>
+            <div class="input-encabezado">
+              <input type="tel" placeholder="Teléfono">
+            </div>
+            <div class="boton-encabezado">
+              <input class="btn azul" type="submit" value="Enviar">
+            </div>                     
+          </form>
+        </div>
+    </header>
+
+    <!-- =================================== -->
+    <!-- === sección | ventajas (iconos) === -->
+    <!-- =================================== -->
+    <div class="ventajas">
+      <div class="contenido-ventajas contenedor">
+        <div class="ventaja">
+          <i class="fas fa-clock"></i>
+          <h3>Entregas en tiempo y forma</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, vel magnam ullam rem beatae sed? Ratione autem maiores quod sit.</p>
+        </div>
+        <div class="ventaja">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Diseño de interfaces modernas</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, vel magnam ullam rem beatae sed? Ratione autem maiores quod sit.</p>
+        </div>
+        <div class="ventaja">
+          <i class="fas fa-code"></i>
+          <h3>Software de calidad</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, vel magnam ullam rem beatae sed? Ratione autem maiores quod sit.</p>
+        </div>
+      </div>      
+    </div>
+
+    <!-- ================================ -->
+    <!-- === sección | sobre nosotros === -->
+    <!-- ================================ -->
+    <section class="nosotros contenedor" id="nosotros">
+      <h2>Sobre nosotros</h2>
+      <div class="contenido-nosotros">
+
+        <div class="texto-nosotros">
+          <h3>Hacemos magia con código</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe perferendis quis distinctio quae sed quos vel repellat vitae vero rerum animi, nam, consequuntur nihil officiis doloremque obcaecati.</p>
+          <a href="#" class="btn bordes">Saber más</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- === sección | servicios === -->
+    <!-- =========================== -->
+    <section class="servicios contenedor" id="servicios">
+      <h2>Servicios</h2>
+      <div class="contenido-servicios">
+        <div class="servicio">
+          <i class="fas fa-headphones-alt"></i>
+          <h3>Soporte</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quaerat at quam nobis quae corporis recusandae aliquid incidunt! Quo laboriosam eos tempore molestiae deleniti labore ea sit eius.</p>
+        </div>
+        <div class="servicio">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Desarrollo móvil</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quaerat at quam nobis quae corporis recusandae aliquid incidunt! Quo laboriosam eos tempore molestiae deleniti labore ea sit eius.</p>
+        </div>
+        <div class="servicio">
+          <i class="fas fa-cogs"></i>
+          <h3>Software personalizable</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quaerat at quam nobis quae corporis recusandae aliquid incidunt! Quo laboriosam eos tempore molestiae deleniti labore ea sit eius.</p>
+        </div>
+        <div class="servicio">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Diseño web</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quaerat at quam nobis quae corporis recusandae aliquid incidunt! Quo laboriosam eos tempore molestiae deleniti labore ea sit eius.</p>
+        </div>
+        <div class="servicio">
+          <i class="fas fa-code"></i>
+          <h3>Ingeniería de software</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quaerat at quam nobis quae corporis recusandae aliquid incidunt! Quo laboriosam eos tempore molestiae deleniti labore ea sit eius.</p>
+        </div>
+        <div class="servicio">
+          <i class="fas fa-database"></i>
+          <h3>Bases de datos</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quaerat at quam nobis quae corporis recusandae aliquid incidunt! Quo laboriosam eos tempore molestiae deleniti labore ea sit eius.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== -->
+    <!-- === sección | contacto === -->
+    <!-- ========================== -->
+    <section class="contacto" id="contacto">
+      <h2>Contactanos</h2>
+      <div class="contenido-contacto">
+        <div class="informacion-contacto">
+          <h3>Información de contacto</h3>
+          <p>business@tecnology.com</p>
+          <p>+34 22334455</p>
+        </div>
+        <form class="formulario-contacto">
+          <div class="input-contacto">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre Apellido">
+          </div>
+          <div class="input-contacto">
+            <label for="correo">Correo</label>
+            <input type="mail" id="correo" placeholder="example@example.com">
+          </div>
+          <div class="input-contacto">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="600400300">
+          </div>
+          <div class="input-contacto">
+            <label for="mensaje">Mensaje</label>
+            <textarea></textarea>
+          </div>
+          <div class="input-contacto">
+            <input type="submit" value="Enviar" class="btn azul">
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- === sección | footer === -->
+    <!-- ======================== -->
+    <footer class="footer">
+      <div class="logo">
+        <h2>Business <span>Tecnology</span></h2>        
+      </div>
+      <p>Todos los derechos reservados <span class="fecha"></span> &copy; Desarrollado por Salvador</p>
+    </footer>
+
+    
+    <!-- === js === -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
